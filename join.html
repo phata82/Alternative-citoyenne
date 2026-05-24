@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous rejoindre | Alternative Citoyenne</title>
+    <meta name="description" content="Rejoignez le mouvement Alternative Citoyenne pour participer au développement de Thiès.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Alternative Citoyenne" style="height: 70px; width: auto;">
+            </a>
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="index.html#president">Le Président</a></li>
+                <li><a href="activities.html">Activités</a></li>
+                <li><a href="news.html">Actualités</a></li>
+                <li><a href="join.html" class="btn btn-primary active" style="color: white;">Nous rejoindre</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Join Section -->
+    <section class="py-20" style="margin-top: 80px; min-height: calc(100vh - 80px - 200px); display: flex; align-items: center;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); overflow: hidden; max-width: 1000px; margin: 0 auto;" class="reveal">
+                
+                <!-- Info Side -->
+                <div style="flex: 1; min-width: 300px; background: linear-gradient(135deg, var(--primary-blue), #0f1c8f); color: white; padding: 3rem;">
+                    <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;">Passez à l'action !</h2>
+                    <p style="margin-bottom: 2rem; opacity: 0.9; font-size: 1.1rem;">
+                        Votre engagement est essentiel pour construire l'avenir de Thiès-Est. Adhérez au mouvement ou contactez-nous pour toute question.
+                    </p>
+                    
+                    <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;">
+                        <i class="fa-solid fa-location-dot" style="font-size: 1.5rem; color: var(--secondary-yellow);"></i>
+                        <div>
+                            <h4 style="color: white; margin-bottom: 0.2rem;">Adresse</h4>
+                            <p style="opacity: 0.8; font-size: 0.95rem;">Commune de Thiès-Est<br>Thiès, Sénégal</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+                        <i class="fa-solid fa-envelope" style="font-size: 1.5rem; color: var(--secondary-yellow);"></i>
+                        <div>
+                            <h4 style="color: white; margin-bottom: 0.2rem;">Email</h4>
+                            <p style="opacity: 0.8; font-size: 0.95rem;">contact@alternative-citoyenne.sn</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem;">
+                        <h4 style="color: white; margin-bottom: 1rem;">Suivez le Président</h4>
+                        <a href="https://www.facebook.com/niangmadiakhate" target="_blank" class="social-icon" style="background: rgba(255,255,255,0.2);">
+                            <i class="fa-brands fa-facebook-f" style="color: white;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div style="flex: 1.5; min-width: 300px; padding: 3rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Formulaire d'adhésion / Contact</h3>
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Merci pour votre message ! Ce formulaire est une démonstration.');">
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <div class="form-group" style="flex: 1; min-width: 200px;">
+                                <label for="firstname">Prénom</label>
+                                <input type="text" id="firstname" class="form-control" placeholder="Votre prénom" required>
+                            </div>
+                            <div class="form-group" style="flex: 1; min-width: 200px;">
+                                <label for="lastname">Nom</label>
+                                <input type="text" id="lastname" class="form-control" placeholder="Votre nom" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Adresse Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="votre.email@exemple.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Numéro de téléphone</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+221 XX XXX XX XX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quartier">Quartier</label>
+                            <input type="text" id="quartier" class="form-control" placeholder="Votre quartier (ex: Hersent, Dixième...)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Votre message..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Envoyer ma demande</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Alternative Citoyenne - And Sopi Thiès.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
