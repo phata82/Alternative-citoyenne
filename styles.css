@@ -375,8 +375,8 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  h2, .section-title { font-size: 1.8rem; word-wrap: break-word; hyphens: auto; }
+  h1 { font-size: 2.5rem; text-align: center; }
+  h2, .section-title { font-size: 1.8rem; word-wrap: break-word; hyphens: auto; text-align: center; }
   
   .menu-toggle { display: block; }
   
