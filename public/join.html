@@ -67,7 +67,8 @@
                 <!-- Form Side -->
                 <div style="flex: 1.5; min-width: 300px; padding: 3rem;">
                     <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Formulaire d'adhésion / Contact</h3>
-                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Merci pour votre message ! Ce formulaire est une démonstration.');">
+                    <form id="joinForm">
+                        <div id="formMessage" style="display: none; padding: 1rem; border-radius: 5px; margin-bottom: 1rem;"></div>
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                             <div class="form-group" style="flex: 1; min-width: 200px;">
                                 <label for="firstname">Prénom</label>
@@ -96,7 +97,7 @@
 
 
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Envoyer ma demande</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Envoyer ma demande</button>
                     </form>
                 </div>
 
@@ -112,5 +113,55 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById('joinForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const msgDiv = document.getElementById('formMessage');
+            
+            btn.disabled = true;
+            btn.innerText = 'Envoi en cours...';
+            msgDiv.style.display = 'none';
+            msgDiv.className = '';
+
+            const data = {
+                firstname: document.getElementById('firstname').value,
+                lastname: document.getElementById('lastname').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                quartier: document.getElementById('quartier').value
+            };
+
+            try {
+                const response = await fetch('/api/join', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                msgDiv.style.display = 'block';
+                if (response.ok) {
+                    msgDiv.style.backgroundColor = '#d4edda';
+                    msgDiv.style.color = '#155724';
+                    msgDiv.innerText = result.message || "Votre demande d'adhésion a été prise en compte avec succès. Bienvenue parmi nous !";
+                    document.getElementById('joinForm').reset();
+                } else {
+                    msgDiv.style.backgroundColor = '#f8d7da';
+                    msgDiv.style.color = '#721c24';
+                    msgDiv.innerText = result.error || "Une erreur est survenue.";
+                }
+            } catch (error) {
+                msgDiv.style.display = 'block';
+                msgDiv.style.backgroundColor = '#f8d7da';
+                msgDiv.style.color = '#721c24';
+                msgDiv.innerText = "Erreur de connexion. Veuillez réessayer.";
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Envoyer ma demande';
+            }
+        });
+    </script>
 </body>
 </html>
